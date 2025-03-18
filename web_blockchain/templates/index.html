@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome - Blockchain Web App{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12 text-center mb-5">
+        <h1>Welcome to Blockchain Web App</h1>
+        <p class="lead">A simple blockchain implementation with web interface</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Create Account</h5>
+                <p class="card-text">Register to get your own wallet address and start mining.</p>
+                <a href="{{ url_for('register') }}" class="btn btn-primary">Register</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Mine Blocks</h5>
+                <p class="card-text">Mine new blocks and earn rewards for maintaining the network.</p>
+                {% if current_user.is_authenticated %}
+                    <a href="{{ url_for('mine') }}" class="btn btn-success">Mine</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}" class="btn btn-secondary">Login to Mine</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">View Blockchain</h5>
+                <p class="card-text">Explore the current state of the blockchain.</p>
+                <a href="{{ url_for('dashboard') }}" class="btn btn-info">View Chain</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-12">
+        <h2>Current Blockchain Status</h2>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Block Height</th>
+                        <th>Hash</th>
+                        <th>Previous Hash</th>
+                        <th>Timestamp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for block in blockchain.chain %}
+                    <tr>
+                        <td>{{ block.index }}</td>
+                        <td class="text-truncate" style="max-width: 200px;">{{ block.hash }}</td>
+                        <td class="text-truncate" style="max-width: 200px;">{{ block.previous_hash }}</td>
+                        <td>{{ block.timestamp }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %} 

@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Blockchain Web App{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5>Your Wallet</h5>
+            </div>
+            <div class="card-body">
+                <p><strong>Address:</strong> <code>{{ user.wallet_address }}</code></p>
+                <p><strong>Balance:</strong> {{ user.balance }} coins</p>
+                <a href="{{ url_for('mine') }}" class="btn btn-success">Mine New Block</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h5>New Transaction</h5>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="{{ url_for('new_transaction') }}">
+                    <div class="mb-3">
+                        <label for="recipient" class="form-label">Recipient Address</label>
+                        <input type="text" class="form-control" id="recipient" name="recipient" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="amount" class="form-label">Amount</label>
+                        <input type="number" step="0.01" class="form-control" id="amount" name="amount" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5>Your Transactions</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Type</th>
+                                <th>Amount</th>
+                                <th>Address</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for transaction in user.transactions %}
+                            <tr>
+                                <td>{{ transaction.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                                <td>
+                                    {% if transaction.sender == user.wallet_address %}
+                                        <span class="text-danger">Sent</span>
+                                    {% else %}
+                                        <span class="text-success">Received</span>
+                                    {% endif %}
+                                </td>
+                                <td>{{ transaction.amount }}</td>
+                                <td>
+                                    {% if transaction.sender == user.wallet_address %}
+                                        {{ transaction.recipient }}
+                                    {% else %}
+                                        {{ transaction.sender }}
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                <h5>Blockchain Status</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Block Height</th>
+                                <th>Hash</th>
+                                <th>Previous Hash</th>
+                                <th>Timestamp</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for block in blockchain.chain %}
+                            <tr>
+                                <td>{{ block.index }}</td>
+                                <td class="text-truncate" style="max-width: 150px;">{{ block.hash }}</td>
+                                <td class="text-truncate" style="max-width: 150px;">{{ block.previous_hash }}</td>
+                                <td>{{ block.timestamp }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
