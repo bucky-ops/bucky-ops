@@ -4,7 +4,6 @@ __pycache__/
 *$py.class
 *.so
 .Python
-env/
 build/
 develop-eggs/
 dist/
@@ -24,13 +23,29 @@ wheels/
 # Virtual Environment
 venv/
 ENV/
+env/
+.env/
+
+# Database
+*.db
+*.sqlite3
+*.sqlite
 
 # IDE
 .idea/
 .vscode/
 *.swp
 *.swo
+.project
+.pydevproject
+.settings/
 
 # OS
 .DS_Store
-Thumbs.db 
+Thumbs.db
+*.log
+
+# Project specific
+web_blockchain/*.db
+web_blockchain/__pycache__/
+web_blockchain/static/*.map 
