@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard - Blockchain Web App{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">Admin Dashboard</h2>
+
+    <!-- Create New User Form -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4>Create New User</h4>
+        </div>
+        <div class="card-body">
+            <form method="POST" action="{{ url_for('create_user') }}">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="is_admin" name="is_admin">
+                    <label class="form-check-label" for="is_admin">Is Admin</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Create User</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- User Management -->
+    <div class="card">
+        <div class="card-header">
+            <h4>User Management</h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Wallet Address</th>
+                            <th>Balance</th>
+                            <th>Admin</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in users %}
+                        <tr>
+                            <td>{{ user.username }}</td>
+                            <td><code>{{ user.wallet_address }}</code></td>
+                            <td>{{ user.balance }}</td>
+                            <td>{% if user.is_admin %}Yes{% else %}No{% endif %}</td>
+                            <td>
+                                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#resetPassword{{ user.id }}">
+                                    Reset Password
+                                </button>
+                            </td>
+                        </tr>
+
+                        <!-- Reset Password Modal -->
+                        <div class="modal fade" id="resetPassword{{ user.id }}" tabindex="-1" aria-labelledby="resetPasswordLabel{{ user.id }}" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="resetPasswordLabel{{ user.id }}">Reset Password for {{ user.username }}</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <form method="POST" action="{{ url_for('reset_password', user_id=user.id) }}">
+                                        <div class="modal-body">
+                                            <div class="mb-3">
+                                                <label for="new_password{{ user.id }}" class="form-label">New Password</label>
+                                                <input type="password" class="form-control" id="new_password{{ user.id }}" name="new_password" required>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Reset Password</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

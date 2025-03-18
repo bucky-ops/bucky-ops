@@ -10,21 +10,25 @@
                 <h5>Your Wallet</h5>
             </div>
             <div class="card-body">
+                <p><strong>Username:</strong> {{ user.username }}</p>
                 <p><strong>Address:</strong> <code>{{ user.wallet_address }}</code></p>
                 <p><strong>Balance:</strong> {{ user.balance }} coins</p>
                 <a href="{{ url_for('mine') }}" class="btn btn-success">Mine New Block</a>
+                {% if user.is_admin %}
+                <a href="{{ url_for('admin_dashboard') }}" class="btn btn-primary">Admin Dashboard</a>
+                {% endif %}
             </div>
         </div>
 
         <div class="card">
             <div class="card-header">
-                <h5>New Transaction</h5>
+                <h5>Send Coins</h5>
             </div>
             <div class="card-body">
-                <form method="POST" action="{{ url_for('new_transaction') }}">
+                <form method="POST" action="{{ url_for('send_coins') }}">
                     <div class="mb-3">
-                        <label for="recipient" class="form-label">Recipient Address</label>
-                        <input type="text" class="form-control" id="recipient" name="recipient" required>
+                        <label for="recipient_username" class="form-label">Recipient Username</label>
+                        <input type="text" class="form-control" id="recipient_username" name="recipient_username" required>
                     </div>
                     <div class="mb-3">
                         <label for="amount" class="form-label">Amount</label>
