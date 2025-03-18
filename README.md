@@ -21,7 +21,8 @@ I'm passionate about building decentralized applications and exploring blockchai
 ```text
 Frontend Development    HTML, CSS, JavaScript, Bootstrap
 Backend Development    Python, Flask, Node.js
-Database Management    SQLite, PostgreSQL, MongoDB
+Database Management    MySQL, PostgreSQL, MongoDB, SQLite
+System Administration  Linux, Windows Server, Docker
 Blockchain            Solidity, Web3.js, Ethereum
 Version Control       Git, GitHub
 ```
@@ -38,27 +39,36 @@ Version Control       Git, GitHub
 - Zero-Knowledge Proofs
 - Cybersecurity & Ethical Hacking
 - Automation & DevOps
-- Data Science & Machine Learning
+- Machine Learning & Deep Learning
+  - Neural Networks
+  - Computer Vision
+  - Natural Language Processing
 
 ### 💼 Skills
 
 - Full Stack Development
+- Database Administration & Optimization
+  - MySQL
+  - PostgreSQL
+  - Database Design & Architecture
+- System Administration
+  - Linux/Unix Systems
+  - Windows Server
+  - Containerization (Docker)
 - Blockchain Architecture
 - Smart Contract Development
-- Database Design
 - API Development
-- System Architecture
 - Security Best Practices
 - Cybersecurity Fundamentals
 - Automation & Scripting
 - Data Analysis & Visualization
 
-### �� How to Reach Me
+### 📈 How to Reach Me
 
 - 💬 Ask me about blockchain technology and web development
-- 📧 Email: [Your Email]
-- 🔗 LinkedIn: [Your LinkedIn]
-- 🌐 Portfolio: [Your Website]
+- 📧 Email: 911recaro@protonmail.com
+- 🔗 LinkedIn: [To be updated Soon]
+- 🌐 Portfolio: [Coming Soon]
 
 ### 🤝 Open to Collaboration
 
