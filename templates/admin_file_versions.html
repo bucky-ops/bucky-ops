@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}File Versions - {{ file.filename }} - File Management DApp{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>File Versions</h2>
+        <a href="{{ url_for('admin_files') }}" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> Back to Files
+        </a>
+    </div>
+
+    <!-- File Info -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="card-title">File Information</h5>
+                    <p><strong>Filename:</strong> {{ file.filename }}</p>
+                    <p><strong>Current Version:</strong> {{ file.version }}</p>
+                    <p><strong>Status:</strong> 
+                        <span class="badge bg-{{ 'success' if file.status == 'approved' else 'warning' if file.status == 'pending' else 'danger' }}">
+                            {{ file.status.title() }}
+                        </span>
+                    </p>
+                    <p><strong>Department:</strong> {{ file.department.title() }}</p>
+                    <p><strong>Owner:</strong> {{ file.owner.username }}</p>
+                </div>
+                <div class="col-md-6">
+                    <h5 class="card-title">Storage Information</h5>
+                    <p><strong>File Size:</strong> {{ (file.file_size / 1024)|round(2) }} KB</p>
+                    <p><strong>File Hash:</strong> <code>{{ file.file_hash }}</code></p>
+                    <p><strong>Upload Date:</strong> {{ file.upload_date.strftime('%Y-%m-%d %H:%M') }}</p>
+                    <p><strong>Last Modified:</strong> {{ file.last_modified.strftime('%Y-%m-%d %H:%M') }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Versions Table -->
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title mb-0">Version History</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Version</th>
+                            <th>Date</th>
+                            <th>By</th>
+                            <th>File Hash</th>
+                            <th>Changes</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for version in file.versions|sort(attribute='version_number', reverse=true) %}
+                        <tr>
+                            <td>v{{ version.version_number }}</td>
+                            <td>{{ version.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+                            <td>{{ version.created_by.username }}</td>
+                            <td><code>{{ version.file_hash }}</code></td>
+                            <td>{{ version.change_description }}</td>
+                            <td>
+                                <div class="btn-group">
+                                    <a href="{{ url_for('admin_restore_version', file_id=file.id, version_id=version.id) }}" 
+                                       class="btn btn-sm btn-warning"
+                                       onclick="return confirm('Are you sure you want to restore this version?')">
+                                        <i class="fas fa-undo"></i> Restore
+                                    </a>
+                                    <a href="{{ url_for('download_file', file_id=file.id, version_id=version.id) }}" 
+                                       class="btn btn-sm btn-info">
+                                        <i class="fas fa-download"></i> Download
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

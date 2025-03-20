@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome - File Management DApp{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 text-center">
+            <h1 class="display-4 mb-4">Welcome to File Management DApp</h1>
+            <p class="lead mb-4">A decentralized application for secure file management and tracking within your organization.</p>
+            
+            {% if current_user.is_authenticated %}
+                <div class="mt-4">
+                    <h2>Welcome back, {{ current_user.username }}!</h2>
+                    <p>Your role: {{ current_user.role.title() }}</p>
+                    <p>Department: {{ current_user.department }}</p>
+                    <div class="mt-4">
+                        <a href="{{ url_for('dashboard') }}" class="btn btn-primary btn-lg me-3">Go to Dashboard</a>
+                        {% if current_user.role == 'admin' %}
+                            <a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary btn-lg">Admin Dashboard</a>
+                        {% endif %}
+                        <a href="{{ url_for('logout') }}" class="btn btn-outline-danger btn-lg ms-3">Logout</a>
+                    </div>
+                </div>
+            {% else %}
+                <div class="mt-4">
+                    <a href="{{ url_for('login') }}" class="btn btn-primary btn-lg me-3">Login</a>
+                    <a href="{{ url_for('register') }}" class="btn btn-outline-primary btn-lg">Register</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Secure Storage</h3>
+                    <p class="card-text">Files are stored securely with blockchain verification for integrity and authenticity.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Workflow Management</h3>
+                    <p class="card-text">Streamlined approval process with role-based access control for efficient file management.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Audit Trail</h3>
+                    <p class="card-text">Complete history of file changes and approvals tracked on the blockchain.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

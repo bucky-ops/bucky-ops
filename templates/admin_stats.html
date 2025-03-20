@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Admin Statistics</h1>
+    
+    <!-- Navigation -->
+    <nav class="nav nav-tabs mb-4">
+        <a class="nav-link" href="{{ url_for('admin_dashboard') }}">Dashboard</a>
+        <a class="nav-link" href="{{ url_for('admin_files') }}">Files</a>
+        <a class="nav-link active" href="{{ url_for('admin_stats') }}">Statistics</a>
+        <a class="nav-link" href="{{ url_for('admin_users') }}">Users</a>
+        <a class="nav-link" href="{{ url_for('admin_activity') }}">Activity</a>
+    </nav>
+
+    <!-- Statistics Cards -->
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Total Users</h5>
+                    <p class="card-text display-4">{{ total_users }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Total Files</h5>
+                    <p class="card-text display-4">{{ total_files }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Total Storage Used</h5>
+                    <p class="card-text display-4">{{ total_storage|filesizeformat }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detailed Statistics -->
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Files by Status</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        {% for status, count in files_by_status.items() %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{ status|title }}
+                            <span class="badge bg-primary rounded-pill">{{ count }}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Users by Role</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        {% for role, count in users_by_role.items() %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{ role|title }}
+                            <span class="badge bg-primary rounded-pill">{{ count }}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Activity -->
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title mb-0">Recent Activity</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>User</th>
+                            <th>Action</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for log in recent_activity %}
+                        <tr>
+                            <td>{{ log.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                            <td>{{ log.user.username }}</td>
+                            <td>{{ log.action|title }}</td>
+                            <td>{{ log.details }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

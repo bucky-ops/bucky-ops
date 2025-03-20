@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block title %}Access Logs - {{ file.filename }} - File Management DApp{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Access Logs</h2>
+        <a href="{{ url_for('admin_files') }}" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> Back to Files
+        </a>
+    </div>
+
+    <!-- File Info -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="card-title">File Information</h5>
+                    <p><strong>Filename:</strong> {{ file.filename }}</p>
+                    <p><strong>Version:</strong> {{ file.version }}</p>
+                    <p><strong>Status:</strong> 
+                        <span class="badge bg-{{ 'success' if file.status == 'approved' else 'warning' if file.status == 'pending' else 'danger' }}">
+                            {{ file.status.title() }}
+                        </span>
+                    </p>
+                    <p><strong>Department:</strong> {{ file.department.title() }}</p>
+                    <p><strong>Owner:</strong> {{ file.owner.username }}</p>
+                </div>
+                <div class="col-md-6">
+                    <h5 class="card-title">Storage Information</h5>
+                    <p><strong>File Size:</strong> {{ (file.file_size / 1024)|round(2) }} KB</p>
+                    <p><strong>File Hash:</strong> <code>{{ file.file_hash }}</code></p>
+                    <p><strong>Upload Date:</strong> {{ file.upload_date.strftime('%Y-%m-%d %H:%M') }}</p>
+                    <p><strong>Last Modified:</strong> {{ file.last_modified.strftime('%Y-%m-%d %H:%M') }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Access Logs Table -->
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title mb-0">Access History</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Timestamp</th>
+                            <th>User</th>
+                            <th>Action</th>
+                            <th>IP Address</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for log in logs %}
+                        <tr>
+                            <td>{{ log.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                            <td>{{ log.user.username }}</td>
+                            <td>
+                                <span class="badge bg-{{ 'success' if log.action in ['upload', 'approve'] else 'info' if log.action in ['download', 'view'] else 'danger' }}">
+                                    {{ log.action.title() }}
+                                </span>
+                            </td>
+                            <td>{{ log.ip_address }}</td>
+                            <td>
+                                <button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#logDetailsModal{{ log.id }}">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Log Details Modals -->
+{% for log in logs %}
+<div class="modal fade" id="logDetailsModal{{ log.id }}" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Log Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Timestamp:</strong> {{ log.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+                <p><strong>User:</strong> {{ log.user.username }}</p>
+                <p><strong>Action:</strong> {{ log.action.title() }}</p>
+                <p><strong>IP Address:</strong> {{ log.ip_address }}</p>
+                <p><strong>User Agent:</strong> {{ log.user_agent }}</p>
+                {% if log.additional_info %}
+                <p><strong>Additional Info:</strong> {{ log.additional_info }}</p>
+                {% endif %}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %} 

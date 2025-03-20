@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block title %}Activity Logs - File Management DApp{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <h2 class="mb-4">Activity Logs</h2>
+    
+    <!-- Filters -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <form method="GET" class="row g-3">
+                <div class="col-md-3">
+                    <label for="action" class="form-label">Action</label>
+                    <select class="form-select" id="action" name="action">
+                        <option value="">All</option>
+                        <option value="upload" {% if request.args.get('action') == 'upload' %}selected{% endif %}>Upload</option>
+                        <option value="download" {% if request.args.get('action') == 'download' %}selected{% endif %}>Download</option>
+                        <option value="view" {% if request.args.get('action') == 'view' %}selected{% endif %}>View</option>
+                        <option value="delete" {% if request.args.get('action') == 'delete' %}selected{% endif %}>Delete</option>
+                        <option value="approve" {% if request.args.get('action') == 'approve' %}selected{% endif %}>Approve</option>
+                        <option value="reject" {% if request.args.get('action') == 'reject' %}selected{% endif %}>Reject</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="user" class="form-label">User</label>
+                    <select class="form-select" id="user" name="user">
+                        <option value="">All</option>
+                        {% for user in users %}
+                        <option value="{{ user.id }}" {% if request.args.get('user')|int == user.id %}selected{% endif %}>
+                            {{ user.username }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="date_from" class="form-label">Date From</label>
+                    <input type="date" class="form-control" id="date_from" name="date_from" 
+                           value="{{ request.args.get('date_from', '') }}">
+                </div>
+                <div class="col-md-3">
+                    <label for="date_to" class="form-label">Date To</label>
+                    <input type="date" class="form-control" id="date_to" name="date_to" 
+                           value="{{ request.args.get('date_to', '') }}">
+                </div>
+                <div class="col-md-12 d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary">Apply Filters</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Activity Logs Table -->
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Timestamp</th>
+                            <th>User</th>
+                            <th>Action</th>
+                            <th>File</th>
+                            <th>IP Address</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for log in logs %}
+                        <tr>
+                            <td>{{ log.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                            <td>{{ log.user.username }}</td>
+                            <td>
+                                <span class="badge bg-{{ 'success' if log.action in ['upload', 'approve'] else 'info' if log.action in ['download', 'view'] else 'danger' }}">
+                                    {{ log.action.title() }}
+                                </span>
+                            </td>
+                            <td>
+                                {% if log.file %}
+                                <a href="{{ url_for('admin_file_details', file_id=log.file.id) }}">
+                                    {{ log.file.filename }}
+                                </a>
+                                {% else %}
+                                N/A
+                                {% endif %}
+                            </td>
+                            <td>{{ log.ip_address }}</td>
+                            <td>
+                                <button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#logDetailsModal{{ log.id }}">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            {% if logs.pages > 1 %}
+            <nav aria-label="Page navigation" class="mt-4">
+                <ul class="pagination justify-content-center">
+                    {% for page in logs.iter_pages() %}
+                        {% if page %}
+                            <li class="page-item {{ 'active' if page == logs.page else '' }}">
+                                <a class="page-link" href="{{ url_for('admin_activity', page=page, **request.args) }}">{{ page }}</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled"><span class="page-link">...</span></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </nav>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<!-- Log Details Modals -->
+{% for log in logs %}
+<div class="modal fade" id="logDetailsModal{{ log.id }}" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Log Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Timestamp:</strong> {{ log.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+                <p><strong>User:</strong> {{ log.user.username }}</p>
+                <p><strong>Action:</strong> {{ log.action.title() }}</p>
+                {% if log.file %}
+                <p><strong>File:</strong> {{ log.file.filename }}</p>
+                {% endif %}
+                <p><strong>IP Address:</strong> {{ log.ip_address }}</p>
+                <p><strong>User Agent:</strong> {{ log.user_agent }}</p>
+                {% if log.additional_info %}
+                <p><strong>Additional Info:</strong> {{ log.additional_info }}</p>
+                {% endif %}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %} 

@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+
+{% block title %}User Activity - {{ user.username }} - File Management DApp{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>User Activity</h2>
+        <a href="{{ url_for('admin_users') }}" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> Back to Users
+        </a>
+    </div>
+
+    <!-- User Info -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="card-title">User Information</h5>
+                    <p><strong>Username:</strong> {{ user.username }}</p>
+                    <p><strong>Email:</strong> {{ user.email }}</p>
+                    <p><strong>Role:</strong> 
+                        <span class="badge bg-{{ 'primary' if user.role == 'admin' else 'success' if user.role == 'approver' else 'info' }}">
+                            {{ user.role.title() }}
+                        </span>
+                    </p>
+                    <p><strong>Department:</strong> {{ user.department.title() }}</p>
+                    <p><strong>Status:</strong> 
+                        <span class="badge bg-{{ 'success' if user.is_active else 'danger' }}">
+                            {{ 'Active' if user.is_active else 'Inactive' }}
+                        </span>
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <h5 class="card-title">Storage Information</h5>
+                    <p><strong>Storage Used:</strong> {{ (user.storage_used / 1024 / 1024)|round(2) }} MB</p>
+                    <p><strong>Storage Limit:</strong> {{ (user.max_storage / 1024 / 1024)|round(2) }} MB</p>
+                    <p><strong>Storage Usage:</strong> {{ user.get_storage_percentage() }}%</p>
+                    <p><strong>Files Uploaded:</strong> {{ user.files|length }}</p>
+                    <p><strong>Last Login:</strong> {{ user.last_login.strftime('%Y-%m-%d %H:%M') if user.last_login else 'Never' }}</p>
+                    <p><strong>Account Created:</strong> {{ user.created_at.strftime('%Y-%m-%d %H:%M') }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Activity Summary -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card bg-primary text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Total Actions</h5>
+                    <h2 class="card-text">{{ logs|length }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-success text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Uploads</h5>
+                    <h2 class="card-text">{{ logs|selectattr('action', 'equalto', 'upload')|list|length }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-info text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Downloads</h5>
+                    <h2 class="card-text">{{ logs|selectattr('action', 'equalto', 'download')|list|length }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-warning text-white">
+                <div class="card-body">
+                    <h5 class="card-title">Views</h5>
+                    <h2 class="card-text">{{ logs|selectattr('action', 'equalto', 'view')|list|length }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Activity Logs Table -->
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title mb-0">Activity History</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Timestamp</th>
+                            <th>Action</th>
+                            <th>File</th>
+                            <th>IP Address</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for log in logs %}
+                        <tr>
+                            <td>{{ log.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                            <td>
+                                <span class="badge bg-{{ 'success' if log.action in ['upload', 'approve'] else 'info' if log.action in ['download', 'view'] else 'danger' }}">
+                                    {{ log.action.title() }}
+                                </span>
+                            </td>
+                            <td>
+                                {% if log.file %}
+                                <a href="{{ url_for('admin_file_details', file_id=log.file.id) }}">
+                                    {{ log.file.filename }}
+                                </a>
+                                {% else %}
+                                N/A
+                                {% endif %}
+                            </td>
+                            <td>{{ log.ip_address }}</td>
+                            <td>
+                                <button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#logDetailsModal{{ log.id }}">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Log Details Modals -->
+{% for log in logs %}
+<div class="modal fade" id="logDetailsModal{{ log.id }}" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Log Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Timestamp:</strong> {{ log.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+                <p><strong>Action:</strong> {{ log.action.title() }}</p>
+                {% if log.file %}
+                <p><strong>File:</strong> {{ log.file.filename }}</p>
+                {% endif %}
+                <p><strong>IP Address:</strong> {{ log.ip_address }}</p>
+                <p><strong>User Agent:</strong> {{ log.user_agent }}</p>
+                {% if log.additional_info %}
+                <p><strong>Additional Info:</strong> {{ log.additional_info }}</p>
+                {% endif %}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %} 

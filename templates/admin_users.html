@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Admin Users</h1>
+    
+    <!-- Navigation -->
+    <nav class="nav nav-tabs mb-4">
+        <a class="nav-link" href="{{ url_for('admin_dashboard') }}">Dashboard</a>
+        <a class="nav-link" href="{{ url_for('admin_files') }}">Files</a>
+        <a class="nav-link" href="{{ url_for('admin_stats') }}">Statistics</a>
+        <a class="nav-link active" href="{{ url_for('admin_users') }}">Users</a>
+        <a class="nav-link" href="{{ url_for('admin_activity') }}">Activity</a>
+    </nav>
+
+    <!-- Filters -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <form method="GET" class="row g-3">
+                <div class="col-md-3">
+                    <label for="role" class="form-label">Role</label>
+                    <select name="role" id="role" class="form-select">
+                        <option value="">All Roles</option>
+                        <option value="admin" {% if request.args.get('role') == 'admin' %}selected{% endif %}>Admin</option>
+                        <option value="user" {% if request.args.get('role') == 'user' %}selected{% endif %}>User</option>
+                        <option value="approver" {% if request.args.get('role') == 'approver' %}selected{% endif %}>Approver</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="department" class="form-label">Department</label>
+                    <select name="department" id="department" class="form-select">
+                        <option value="">All Departments</option>
+                        {% for dept in departments %}
+                        <option value="{{ dept }}" {% if request.args.get('department') == dept %}selected{% endif %}>{{ dept }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="status" class="form-label">Status</label>
+                    <select name="status" id="status" class="form-select">
+                        <option value="">All Status</option>
+                        <option value="active" {% if request.args.get('status') == 'active' %}selected{% endif %}>Active</option>
+                        <option value="inactive" {% if request.args.get('status') == 'inactive' %}selected{% endif %}>Inactive</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="search" class="form-label">Search</label>
+                    <input type="text" name="search" id="search" class="form-control" placeholder="Username or email" value="{{ request.args.get('search', '') }}">
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Apply Filters</button>
+                    <a href="{{ url_for('admin_users') }}" class="btn btn-secondary">Clear Filters</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Users Table -->
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Department</th>
+                            <th>Status</th>
+                            <th>Storage Used</th>
+                            <th>Last Login</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in users.items %}
+                        <tr>
+                            <td>{{ user.username }}</td>
+                            <td>{{ user.email }}</td>
+                            <td><span class="badge bg-{{ 'primary' if user.role == 'admin' else 'success' if user.role == 'approver' else 'info' }}">{{ user.role|title }}</span></td>
+                            <td>{{ user.department }}</td>
+                            <td>
+                                <span class="badge bg-{{ 'success' if user.is_active else 'danger' }}">
+                                    {{ 'Active' if user.is_active else 'Inactive' }}
+                                </span>
+                            </td>
+                            <td>{{ user.storage_used|filesizeformat }} / {{ user.max_storage|filesizeformat }}</td>
+                            <td>{{ user.last_login.strftime('%Y-%m-%d %H:%M:%S') if user.last_login else 'Never' }}</td>
+                            <td>
+                                <div class="btn-group">
+                                    <a href="{{ url_for('admin_user_activity', user_id=user.id) }}" class="btn btn-sm btn-info" title="View Activity">
+                                        <i class="fas fa-history"></i>
+                                    </a>
+                                    <button type="button" 
+                                            class="btn btn-sm btn-{{ 'danger' if user.is_active else 'success' }}"
+                                            onclick="toggleUserStatus({{ user.id }});"
+                                            title="{{ 'Deactivate' if user.is_active else 'Activate' }}">
+                                        <i class="fas fa-{{ 'ban' if user.is_active else 'check' }}"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            <nav aria-label="Page navigation" class="mt-4">
+                <ul class="pagination justify-content-center">
+                    {% if users.has_prev %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ url_for('admin_users', page=users.prev_num, **request.args) }}">Previous</a>
+                    </li>
+                    {% endif %}
+                    
+                    {% for page in users.iter_pages() %}
+                        {% if page %}
+                            <li class="page-item {{ 'active' if page == users.page else '' }}">
+                                <a class="page-link" href="{{ url_for('admin_users', page=page, **request.args) }}">{{ page }}</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled"><span class="page-link">...</span></li>
+                        {% endif %}
+                    {% endfor %}
+                    
+                    {% if users.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ url_for('admin_users', page=users.next_num, **request.args) }}">Next</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript for user status toggle -->
+<script>
+function toggleUserStatus(userId) {
+    if (confirm('Are you sure you want to change this user\'s status?')) {
+        fetch(`/admin/user/${userId}/toggle-status`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token() }}'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                location.reload();
+            } else {
+                alert('Error: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred while updating the user status.');
+        });
+    }
+}
+</script>
+{% endblock %} 

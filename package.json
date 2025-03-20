@@ -1,0 +1,17 @@
+{
+  "name": "file-management-dapp",
+  "version": "1.0.0",
+  "description": "File Management DApp with smart contract integration",
+  "main": "index.js",
+  "scripts": {
+    "test": "truffle test",
+    "compile": "truffle compile",
+    "migrate": "truffle migrate"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.5.0",
+    "@truffle/hdwallet-provider": "^2.0.0",
+    "truffle": "^5.5.0",
+    "ganache": "^7.5.0"
+  }
+} 
