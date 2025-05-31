@@ -90,5 +90,3 @@ I'm always interested in collaborating on:
 
 ⭐️ From [bucky-ops](https://github.com/bucky-ops)
 
-<!-- Replace [Your Email], [Your LinkedIn], and [Your Website] with your actual contact information -->
-<!-- You can also customize the themes and styles of the GitHub stats cards -->
