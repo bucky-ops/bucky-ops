@@ -1,5 +1,7 @@
 # Hi there, I'm Bucky 👋
 
+![Profile Views](https://komarev.com/ghpvc/?username=bucky-ops&label=Profile%20views&color=8d6748&style=flat)
+
 ## 🚀 Full Stack Developer | Blockchain Enthusiast | Open Source Contributor
 
 I'm passionate about building decentralized applications and exploring blockchain technology. My journey in tech is driven by curiosity and a desire to create impactful solutions.
@@ -27,9 +29,21 @@ Blockchain            Solidity, Web3.js, Ethereum
 Version Control       Git, GitHub
 ```
 
-### 📊 GitHub Stats
+---
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=bucky-ops&show_icons=true&theme=radical)
+## 📊 GitHub Stats & Activity
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=bucky-ops&show_icons=true&theme=gruvbox" alt="GitHub Stats" />
+  <br />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=bucky-ops&theme=gruvbox" alt="GitHub Streak" />
+  <br />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=bucky-ops&layout=compact&theme=gruvbox" alt="Top Languages" />
+  <br />
+  <img src="https://github-profile-trophy.vercel.app/?username=bucky-ops&theme=gruvbox" alt="GitHub Trophies" />
+</p>
+
+---
 
 ### 🌱 Currently Learning
 
@@ -78,15 +92,6 @@ I'm always interested in collaborating on:
 - DeFi Applications
 - Web3 Development
 
-### 📈 Activity
-
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=bucky-ops&layout=compact&theme=radical)
-
-### 🏆 GitHub Trophies
-
-![GitHub Trophies](https://github-profile-trophy.vercel.app/?username=bucky-ops&theme=radical)
-
 ---
 
 ⭐️ From [bucky-ops](https://github.com/bucky-ops)
-
