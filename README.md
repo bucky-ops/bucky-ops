@@ -34,14 +34,54 @@ Version Control       Git, GitHub
 ## 📊 GitHub Stats & Activity
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=bucky-ops&show_icons=true&theme=gruvbox" alt="GitHub Stats" />
-  <br />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=bucky-ops&theme=gruvbox" alt="GitHub Streak" />
-  <br />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=bucky-ops&layout=compact&theme=gruvbox" alt="Top Languages" />
-  <br />
-  <img src="https://github-profile-trophy.vercel.app/?username=bucky-ops&theme=gruvbox" alt="GitHub Trophies" />
+
+  <!-- GitHub Overall Stats -->
+  <img
+    src="https://github-readme-stats.vercel.app/api?username=bucky-ops
+    &show_icons=true
+    &theme=gruvbox
+    &include_all_commits=true
+    &count_private=true
+    &cache_seconds=180"
+    alt="GitHub Stats"
+  />
+
+  <br/>
+
+  <!-- GitHub Streak Stats (Live) -->
+  <img
+    src="https://streak-stats.demolab.com?user=bucky-ops
+    &theme=gruvbox
+    &hide_border=false
+    &date_format=M%20j%5B%2C%20Y%5D"
+    alt="GitHub Streak."
+  />
+
+  <br/>
+
+  <!-- Top Languages -->
+  <img
+    src="https://github-readme-stats.vercel.app/api/top-langs/?username=bucky-ops
+    &layout=compact
+    &theme=gruvbox
+    &langs_count=10
+    &cache_seconds=180"
+    alt="Top Languages."
+  />
+
+  <br/>
+
+  <!-- GitHub Trophies -->
+  <img
+    src="https://github-profile-trophy.vercel.app/?username=bucky-ops
+    &theme=gruvbox
+    &margin-w=10
+    &no-frame=true"
+    alt="GitHub Trophies."
+  />
+
 </p>
+
 
 ---
 
