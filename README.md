@@ -1,158 +1,251 @@
-# Bucky | Blockchain Developer
+# Bucky | Systems & Blockchain Engineer
 
 <div align="center">
 
 ![Profile Views](https://komarev.com/ghpvc/?username=bucky-ops&label=Profile%20views&color=8d6748&style=flat)
 [![Email](https://img.shields.io/badge/Email-911recaro@protonmail.com-D14836?style=flat&logo=protonmail&logoColor=white)](mailto:911recaro@protonmail.com)
 
-**Building blockchain solutions for enterprise inventory management**
+**I design and build production-grade systems combining blockchain, AI, and data engineering to solve real operational and governance problems.**
+
+*Blockchain • AI Systems • Data Engineering • DevOps • Governance-first Architecture*
 
 </div>
 
 ---
 
-## What I Build
+## What I Do (In Plain Terms)
 
-I develop blockchain applications focused on enterprise systems and inventory management. My work combines secure blockchain infrastructure with practical business applications.
+Most projects stop at demos. I focus on **end-to-end systems** that organizations can actually run.
 
-**Core Focus:**
-- Enterprise blockchain inventory systems
-- Smart contract development and integration
-- Full-stack application development with Python
-- Data analysis and prediction models
+I build:
+- **Blockchain-backed enterprise systems** (inventory, accounting, identity)
+- **AI & data intelligence platforms** (forecasting, profiling, policy analytics)
+- **Governance-first architectures** (auditability, HITL, explainability)
+- **Production infrastructure** (CI/CD, container security, IaC)
 
----
-
-## Featured Projects
-
-### 🔗 Enterprise Blockchain Inventory Management System
-**Status:** Active Development
-
-An enterprise-grade blockchain platform for inventory tracking and management with AI agent integration.
-
-**What it solves:**
-- Transparent, immutable inventory tracking across supply chains
-- Multi-party verification for inventory transactions
-- Automated compliance and audit trails
-- AI-powered inventory predictions and optimization
-
-**Technical Implementation:**
-- Blockchain infrastructure for data integrity
-- Smart contract automation
-- Container security scanning (CodeQL v3)
-- Enterprise-grade security workflows
-- AI agent integration for intelligent automation
-
-**Tech Stack:**
-- Blockchain implementation
-- CI/CD with GitHub Actions
-- Security: Container scanning, CodeQL analysis
-- Infrastructure as Code
-
-**Repository:** [blockchain-inventory-system](https://github.com/bucky-ops/blockchain-inventory-system)
+My work sits at the intersection of **trust, intelligence, and automation**.
 
 ---
 
-### 📊 Jupyter Prediction Models
-**Status:** Complete
+## Problems I Solve
 
-Machine learning models for data prediction and analysis using Jupyter notebooks.
+### 🏭 Fragmented Enterprise Operations
+**Problem**  
+Siloed databases, manual reconciliation, weak audit trails.
 
-**What it does:**
-- Statistical analysis and forecasting
-- Data visualization
-- Predictive modeling
-- Pattern recognition
+**Solution**  
+- Blockchain ledgers for shared truth  
+- Smart contracts enforcing business rules  
+- CI/CD-secured deployments  
 
-**Tech Stack:**
-- Python (Jupyter Notebook)
-- Data science libraries
-- Statistical modeling
-
-**Repository:** [Jupyter-Predictions](https://github.com/bucky-ops/Jupyter-Predictions)
+**Outcome**  
+✔ Reduced disputes  
+✔ Faster audits  
+✔ Higher data trust  
 
 ---
 
-### 📱 Android Development Projects
-**Status:** Learning/Experimental
+### 📉 Weak Forecasting & Decision Support
+**Problem**  
+Organizations plan with incomplete or noisy data.
 
-Android application development exploring mobile UI/UX and functionality.
+**Solution**  
+- ML & statistical forecasting  
+- Time-series modeling  
+- AI agents for optimization  
 
-**Repositories:**
-- [Android-U.I](https://github.com/bucky-ops/Android-U.I)
-- [Android](https://github.com/bucky-ops/Android)
+**Outcome**  
+✔ Better planning  
+✔ Reduced waste  
+✔ Data-driven decisions  
+
+---
+
+### 🧠 Black-Box AI & Governance Gaps
+**Problem**  
+AI systems lack transparency and accountability.
+
+**Solution**  
+- Human-in-the-Loop (HITL) architectures  
+- Explainable ML  
+- Tamper-evident audit trails  
+
+**Outcome**  
+✔ Trustworthy AI  
+✔ Policy-ready insights  
+✔ Safer automation  
+
+---
+
+## Solution Areas & Flagship Projects
+
+Rather than isolated demos, my repositories form **solution clusters**.
+
+---
+
+## 🧱 Enterprise Systems & Blockchain
+
+### 🔗 Enterprise Blockchain Inventory Management
+**Repo:** `blockchain-inventory-system`
+
+**Solves**
+- Inventory reconciliation errors  
+- Fraud & data tampering  
+- Manual audits  
+
+**How**
+- Immutable inventory ledger  
+- Smart contracts for stock movement  
+- AI-agent hooks for forecasting  
+- CodeQL + container security  
+
+---
+
+### 🧾 Web3 Accounting & Identity
+**Repos:**  
+`Web3AccountingHub` · `blockchain-login-system` · `ethereum-todo-app`
+
+**Solves**
+- Centralized identity risk  
+- Tamper-prone accounting  
+
+**How**
+- Decentralized authentication  
+- Blockchain-backed records  
+- Smart-contract state management  
+
+---
+
+## 🤖 AI, Analytics & Intelligence Systems
+
+### 🧠 Automated Job Intelligence & Profiling System (AJIPS)
+**Repo:** `Auto-JIPS`
+
+**Solves**
+- Shallow job matching  
+- Hidden skill signals  
+
+**How**
+- NLP-driven job parsing  
+- Skill extraction & profiling  
+- Role intelligence generation  
+
+---
+
+### 🌍 Climate, Food Security & SDG Intelligence
+**Repos**
+- `Global-Climate-Food-Security-Intelligence-Platform-GCF-SIP`
+- `un-sdg-east-africa-insights-pipeline`
+- `sdg-rag-system`
+
+**Solves**
+- Fragmented climate & food security data  
+- Poor policy simulation tools  
+
+**How**
+- End-to-end data pipelines  
+- Explainable ML risk models  
+- RAG-based policy intelligence  
+- Scenario simulations  
+
+---
+
+### 🧬 Intelligent Profiling & HITL Systems
+**Repos:** `intelligent-profiling-engine`, `un-review-hub`
+
+**Solves**
+- Black-box AI decisions  
+- Weak auditability  
+
+**How**
+- Hybrid ML + NLP  
+- HITL feedback loops  
+- Federated, tamper-evident reviews  
+
+---
+
+## 🏙️ Urban, Telecom & Civic Platforms
+
+### 🚦 Smart Traffic & Urban Intelligence
+**Repo:** `nairobiflow-traffic-management`
+
+**Solves**
+- Congestion & poor traffic visibility  
+
+**How**
+- Real-time monitoring  
+- Predictive congestion analytics  
+- City-scale modeling  
+
+---
+
+### 📡 ISP Field Ops Automation
+**Repo:** `isp-field-ops-automation`
+
+**Solves**
+- Manual dispatch & job tracking  
+
+**How**
+- Real-time job orchestration  
+- CRM/ERP integrations  
+- Automated call logging  
+
+---
+
+### 🧑🏾‍🤝‍🧑 NGO & Civic Intelligence
+**Repos:** `ngo-insights-ai`, `NOWA-SYSTEMS`
+
+**Solves**
+- Slow needs assessment  
+- Donor–community mismatch  
+
+**How**
+- Automated data collection  
+- AI-driven prioritization  
+- Outreach intelligence  
 
 ---
 
 ## Technical Stack
 
 ### Languages & Frameworks
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![Solidity](https://img.shields.io/badge/Solidity-363636?style=flat-square&logo=solidity&logoColor=white)
-![Flask](https://img.shields.io/badge/Flask-000000?style=flat-square&logo=flask&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white)
+Python · TypeScript · JavaScript · Solidity · Flask · Node.js · Next.js · React
 
-### Databases & Storage
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=flat-square&logo=postgresql&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)
-![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white)
+### Databases & Data
+PostgreSQL · MySQL · MongoDB · SQLite · Data Pipelines · RLS
 
 ### Blockchain & Web3
-![Ethereum](https://img.shields.io/badge/Ethereum-3C3C3D?style=flat-square&logo=ethereum&logoColor=white)
-![Web3.js](https://img.shields.io/badge/Web3.js-F16822?style=flat-square&logo=web3.js&logoColor=white)
+Ethereum · Smart Contracts · Web3.js · Consensus (Raft)
+
+### AI & Data Science
+NLP · Time-Series Forecasting · RAG Systems · Explainable ML · HITL
 
 ### DevOps & Security
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=github-actions&logoColor=white)
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
-![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
-
-### Data Science & ML
-![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=flat-square&logo=jupyter&logoColor=white)
-![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white)
+Docker · GitHub Actions · Linux · CodeQL · CI/CD · Infrastructure as Code
 
 ---
 
-## Real-World Applications
+## How My Projects Fit Together
 
-### 🏭 Supply Chain & Inventory
-**Problem:** Traditional inventory systems lack transparency and are vulnerable to errors and fraud.
+My work follows a **governance-first, production architecture**:
 
-**My Solution:**
-- Blockchain-based inventory tracking with immutable records
-- Smart contracts for automated stock management
-- AI agents for predictive inventory optimization
-- Multi-party verification reducing disputes
-- Complete audit trails for compliance
+1. **Trust & data ingestion**  
+   Blockchain, audit trails, secure pipelines  
 
-**Impact:**
-- Transparent supply chain visibility
-- Reduced reconciliation errors
-- Automated compliance reporting
-- Real-time inventory tracking
+2. **Intelligence layer**  
+   ML, NLP, forecasting, RAG  
 
----
+3. **Decision & automation**  
+   AI agents, smart contracts, HITL  
 
-### 📈 Data-Driven Decision Making
-**Problem:** Businesses need accurate predictions for inventory and resource planning.
+4. **Deployment & operations**  
+   CI/CD, container security, reproducible infra  
 
-**My Solution:**
-- Statistical models for forecasting
-- Pattern recognition in historical data
-- Visualization of trends and insights
-- Predictive analytics for optimization
-
-**Impact:**
-- Better inventory planning
-- Reduced waste and overstock
-- Data-backed business decisions
+This mirrors how **enterprise, civic, and UN-scale systems** are built.
 
 ---
 
-## GitHub Statistics
+## GitHub Stats
 
 <div align="center">
 
@@ -163,178 +256,38 @@ Android application development exploring mobile UI/UX and functionality.
 
 <div align="center">
 
-[![GitHub Streak](https://streak-stats.demolab.com?user=bucky-ops&theme=gruvbox&hide_border=true&background=0D1117)](https://git.io/streak-stats)
+<img src="https://streak-stats.demolab.com?user=bucky-ops&theme=gruvbox&hide_border=true&background=0D1117" />
 
 </div>
 
 ---
 
-## Current Learning Focus
-
-**Enterprise Blockchain:**
-- Advanced smart contract security patterns
-- Enterprise blockchain architecture
-- Private/permissioned blockchain networks
-- Cross-chain interoperability
-
-**AI & Automation:**
-- AI agent integration with blockchain
-- Machine learning for inventory optimization
-- Automated decision-making systems
-- Natural language processing
-
-**Security & DevOps:**
-- Container security and scanning
-- CodeQL static analysis
-- CI/CD pipeline optimization
-- Infrastructure as Code best practices
-
-**Data Science:**
-- Advanced predictive modeling
-- Time series forecasting
-- Statistical analysis techniques
-- Data visualization methods
+## Current Focus
+- Enterprise blockchain architecture  
+- Secure smart contract patterns  
+- AI agents & automation  
+- Inventory & policy forecasting  
+- CI/CD hardening & container security  
 
 ---
 
-## How I Can Help
+## Open to Collaboration
 
-### For Enterprises
-- Design blockchain-based inventory management systems
-- Implement transparent supply chain tracking
-- Create audit-compliant record systems
-- Integrate AI for inventory optimization
+- Enterprise & civic tech systems  
+- Blockchain + AI integrations  
+- Governance & audit-ready platforms  
+- Open-source infrastructure tools  
 
-### For Developers
-- Collaborate on blockchain infrastructure projects
-- Share knowledge on enterprise blockchain patterns
-- Contribute to open-source Web3 tools
-- Code reviews and architectural discussions
-
-### For Businesses
-- Build secure, transparent inventory systems
-- Develop smart contracts for business automation
-- Implement data analytics for better decisions
-- Create custom blockchain solutions
-
----
-
-## Open to Collaboration On
-
-**Enterprise Blockchain:**
-- Supply chain transparency solutions
-- Inventory management systems
-- Asset tracking platforms
-- Multi-party verification systems
-
-**AI + Blockchain:**
-- Intelligent contract automation
-- Predictive analytics on blockchain data
-- AI-powered supply chain optimization
-- Smart inventory management
-
-**Open Source:**
-- Blockchain development tools
-- Security scanning tools
-- Data analysis frameworks
-- Enterprise blockchain templates
-
----
-
-## Repository Highlights
-
-| Repository | Description | Tech Stack |
-|------------|-------------|------------|
-| [blockchain-inventory-system](https://github.com/bucky-ops/blockchain-inventory-system) | Enterprise blockchain inventory with AI agents | Blockchain, CI/CD, Security |
-| [Jupyter-Predictions](https://github.com/bucky-ops/Jupyter-Predictions) | ML prediction models | Python, Jupyter, Data Science |
-| [Trail_One](https://github.com/bucky-ops/Trail_One) | Data analysis experiments | Jupyter Notebook |
-| [cv](https://github.com/bucky-ops/cv) | Portfolio website | HTML/CSS |
-
----
-
-## Technical Experience
-
-**What I've built:**
-- Enterprise blockchain inventory management platform
-- Smart contract systems with security scanning
-- Predictive analytics models in Jupyter
-- CI/CD pipelines with GitHub Actions
-- Container security implementations
-- Database architectures for blockchain data
-
-**Production Skills:**
-- Flask/Python backend development
-- Blockchain implementation and integration
-- CodeQL security analysis
-- Docker containerization
-- Git workflow management
-- Data analysis and visualization
-
----
-
-## Contact & Collaboration
-
-**Email:** 911recaro@protonmail.com
-
-**Best for:**
-- Enterprise blockchain consulting
-- Inventory management solutions
-- Smart contract development
-- Data analytics projects
-- Technical collaboration
-
-**Response time:** Within 24-48 hours
-
----
-
-## 2025 Goals
-
-- [ ] Launch blockchain inventory system v1.0
-- [ ] Contribute to 5+ open source blockchain projects
-- [ ] Publish technical documentation on enterprise blockchain
-- [ ] Implement advanced AI agent integration
-- [ ] Complete security certifications (blockchain focus)
-- [ ] Build reusable smart contract templates
-- [ ] Create educational content on supply chain blockchain
-
----
-
-## Honest Assessment
-
-**What I bring:**
-- Practical experience with enterprise blockchain systems
-- Understanding of inventory management challenges
-- Ability to implement security best practices
-- Knowledge of CI/CD and DevOps workflows
-- Data analysis and predictive modeling skills
-- Full-stack development capabilities
-
-**Currently developing:**
-- Advanced smart contract patterns
-- AI agent integration techniques
-- Large-scale blockchain architecture
-- Enterprise security standards
-- Performance optimization strategies
-
-**Growing in:**
-- Production-scale blockchain deployment
-- Advanced cryptography implementations
-- Multi-chain architecture
-- Enterprise integration patterns
-- Team leadership and collaboration
+📧 **Email:** 911recaro@protonmail.com  
 
 ---
 
 <div align="center">
 
-![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=bucky-ops&theme=react-dark&hide_border=true&area=true)
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=bucky-ops&theme=react-dark&hide_border=true&area=true" />
 
----
+**Building systems that don’t just demo — they operate.**
 
-**Building enterprise blockchain solutions with real-world impact**
-
-![Visitor Count](https://profile-counter.glitch.me/bucky-ops/count.svg)
-
-*Last Updated: February 2026*
+*Last updated: February 2026*
 
 </div>
