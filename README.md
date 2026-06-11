@@ -2,246 +2,109 @@
 
 <div align="center">
 
-![Profile Views](https://komarev.com/ghpvc/?username=bucky-ops&label=Profile%20views&color=8d6748&style=flat)
+![Profile Views](https://komarev.com/ghpvc/?username=bucky-ops&label=Profile%20views&color=0d6efd&style=flat)
 [![Email](https://img.shields.io/badge/Email-911recaro@protonmail.com-D14836?style=flat&logo=protonmail&logoColor=white)](mailto:911recaro@protonmail.com)
+[![GitHub](https://img.shields.io/badge/GitHub-bucky--ops-181717?style=flat&logo=github)](https://github.com/bucky-ops)
+[![Twitter](https://img.shields.io/badge/Twitter-@blurred__cmk-1DA1F2?style=flat&logo=twitter)](https://twitter.com/blurred_cmk)
 
 **I design and build production-grade systems combining blockchain, AI, and data engineering to solve real operational and governance problems.**
 
-*Blockchain • AI Systems • Data Engineering • DevOps • Governance-first Architecture*
+*Blockchain &bull; AI Systems &bull; Data Engineering &bull; DevOps &bull; Governance-first Architecture*
+
+📍 Nairobi, Kenya &bull; 🏢 TechSavanna Kenya
 
 </div>
 
 ---
 
-## What I Do (In Plain Terms)
+## What I Build
 
-Most projects stop at demos. I focus on **end-to-end systems** that organizations can actually run.
+I don't do demos. I build **end-to-end systems** that organizations can actually run.
 
-I build:
-- **Blockchain-backed enterprise systems** (inventory, accounting, identity)
-- **AI & data intelligence platforms** (forecasting, profiling, policy analytics)
-- **Governance-first architectures** (auditability, HITL, explainability)
-- **Production infrastructure** (CI/CD, container security, IaC)
-
-My work sits at the intersection of **trust, intelligence, and automation**.
-
----
-
-## Problems I Solve
-
-### 🏭 Fragmented Enterprise Operations
-**Problem**  
-Siloed databases, manual reconciliation, weak audit trails.
-
-**Solution**  
-- Blockchain ledgers for shared truth  
-- Smart contracts enforcing business rules  
-- CI/CD-secured deployments  
-
-**Outcome**  
-✔ Reduced disputes  
-✔ Faster audits  
-✔ Higher data trust  
+| Domain | What I Deliver |
+|--------|---------------|
+| **Blockchain Enterprise** | Inventory ledgers, smart contracts, identity systems |
+| **AI & Data Intelligence** | Forecasting, profiling, policy analytics, RAG systems |
+| **Governance Architecture** | Auditability, HITL, explainability, compliance |
+| **Production Infrastructure** | CI/CD, container security, IaC, monitoring |
 
 ---
 
-### 📉 Weak Forecasting & Decision Support
-**Problem**  
-Organizations plan with incomplete or noisy data.
+## Solution Clusters
 
-**Solution**  
-- ML & statistical forecasting  
-- Time-series modeling  
-- AI agents for optimization  
+### Enterprise Systems & Blockchain
+| Project | Description |
+|---------|-------------|
+| [blockchain-inventory-system](https://github.com/bucky-ops/blockchain-inventory-system) | Enterprise inventory on immutable ledger with smart contracts and AI forecasting |
+| [Web3AccountingHub](https://github.com/bucky-ops/Web3AccountingHub) | Decentralized accounting and financial management on Web3 |
+| [blockchain-login-system](https://github.com/bucky-ops/blockchain-login-system) | Secure authentication using blockchain-based identity verification |
+| [ethereum-todo-app](https://github.com/bucky-ops/ethereum-todo-app) | Decentralized task management built on Ethereum smart contracts |
+| [ERP-System-Ticketing-and-Management](https://github.com/bucky-ops/ERP-System-Ticketing-and-Management) | Modern ERP with ticketing, built with React and TypeScript |
+| [Uhasibu-Platform](https://github.com/bucky-ops/Uhasibu-Platform) | Kenya-focused prediction market and financial platform |
 
-**Outcome**  
-✔ Better planning  
-✔ Reduced waste  
-✔ Data-driven decisions  
+### AI, Analytics & Intelligence
+| Project | Description |
+|---------|-------------|
+| [Auto-JIPS](https://github.com/bucky-ops/Auto-JIPS) | Automated Job Intelligence & Profiling System with NLP-driven parsing |
+| [intelligent-profiling-engine](https://github.com/bucky-ops/intelligent-profiling-engine) | Hybrid AI profiling engine combining unsupervised learning and NLP |
+| [Kenya-Childhood-Malnutrition-Risk-Prediction-System](https://github.com/bucky-ops/Kenya-Childhood-Malnutrition-Risk-Prediction-System) | Digital tool for predicting acute childhood malnutrition risk in Kenya |
+| [data-auto-system](https://github.com/bucky-ops/data-auto-system) | Comprehensive data automation with analytics, scheduling, and pipelines |
 
----
+### Climate, SDGs & Civic Intelligence
+| Project | Description |
+|---------|-------------|
+| [Global-Climate-Food-Security-Intelligence-Platform-GCF-SIP-](https://github.com/bucky-ops/Global-Climate-Food-Security-Intelligence-Platform-GCF-SIP-) | End-to-end AI platform for climate and food security intelligence |
+| [un-sdg-east-africa-insights-pipeline](https://github.com/bucky-ops/un-sdg-east-africa-insights-pipeline) | Governance-first SDG monitoring analytics pipeline for East Africa |
+| [sdg-rag-system](https://github.com/bucky-ops/sdg-rag-system) | AI-powered urban intelligence integrating UN SDG data with RAG |
+| [un-review-hub](https://github.com/bucky-ops/un-review-hub) | Federated HITL review platform for UN agencies |
+| [un-sdg-eastafrica](https://github.com/bucky-ops/un-sdg-eastafrica) | SDG monitoring and analytics for East African governance |
+| [ngo-insights-ai](https://github.com/bucky-ops/ngo-insights-ai) | AI-powered outreach intelligence platform for East African NGOs |
 
-### 🧠 Black-Box AI & Governance Gaps
-**Problem**  
-AI systems lack transparency and accountability.
+### Urban, Telecom & Infrastructure
+| Project | Description |
+|---------|-------------|
+| [nairobiflow-traffic-management](https://github.com/bucky-ops/nairobiflow-traffic-management) | Intelligent traffic management and predictive congestion analytics |
+| [isp-field-ops-automation](https://github.com/bucky-ops/isp-field-ops-automation) | Enterprise field operations and automation platform for ISPs |
+| [icrc-humanitarian-ledger](https://github.com/bucky-ops/icrc-humanitarian-ledger) | Blockchain supply chain for tracking medical supplies in humanitarian ops |
+| [telecomdb](https://github.com/bucky-ops/telecomdb) | Telecom database management and analytics system |
+| [python-raft-consensus](https://github.com/bucky-ops/python-raft-consensus) | Implementation of the Raft consensus algorithm in Python |
 
-**Solution**  
-- Human-in-the-Loop (HITL) architectures  
-- Explainable ML  
-- Tamper-evident audit trails  
-
-**Outcome**  
-✔ Trustworthy AI  
-✔ Policy-ready insights  
-✔ Safer automation  
-
----
-
-## Solution Areas & Flagship Projects
-
-Rather than isolated demos, my repositories form **solution clusters**.
-
----
-
-## 🧱 Enterprise Systems & Blockchain
-
-### 🔗 Enterprise Blockchain Inventory Management
-**Repo:** `blockchain-inventory-system`
-
-**Solves**
-- Inventory reconciliation errors  
-- Fraud & data tampering  
-- Manual audits  
-
-**How**
-- Immutable inventory ledger  
-- Smart contracts for stock movement  
-- AI-agent hooks for forecasting  
-- CodeQL + container security  
+### Web & Creative
+| Project | Description |
+|---------|-------------|
+| [techsavanna-homepage](https://github.com/bucky-ops/techsavanna-homepage) | Enhanced TechSavanna homepage with 3D design and interactive cards |
+| [binti-rising-website](https://github.com/bucky-ops/binti-rising-website) | Website for Binti Rising initiative |
+| [binti-motion-studio](https://github.com/bucky-ops/binti-motion-studio) | Motion studio application for creative content |
+| [kamama-digital-canvas](https://github.com/bucky-ops/kamama-digital-canvas) | Digital canvas application for creative workflows |
+| [NOWA-SYSTEMS](https://github.com/bucky-ops/NOWA-SYSTEMS) | Civic systems platform for community empowerment |
+| [blogify](https://github.com/bucky-ops/blogify) | Blogging platform with modern web technologies |
+| [email-agent](https://github.com/bucky-ops/email-agent) | Intelligent email automation and management agent |
 
 ---
 
-### 🧾 Web3 Accounting & Identity
-**Repos:**  
-`Web3AccountingHub` · `blockchain-login-system` · `ethereum-todo-app`
+## Architecture Philosophy
 
-**Solves**
-- Centralized identity risk  
-- Tamper-prone accounting  
+My systems follow a **governance-first, production architecture**:
 
-**How**
-- Decentralized authentication  
-- Blockchain-backed records  
-- Smart-contract state management  
+```
+1. Trust & Ingestion    Blockchain, audit trails, secure pipelines
+2. Intelligence Layer   ML, NLP, forecasting, RAG
+3. Decision & Action    AI agents, smart contracts, HITL
+4. Deployment & Ops     CI/CD, container security, reproducible infra
+```
 
 ---
 
-## 🤖 AI, Analytics & Intelligence Systems
+## Tech Stack
 
-### 🧠 Automated Job Intelligence & Profiling System (AJIPS)
-**Repo:** `Auto-JIPS`
-
-**Solves**
-- Shallow job matching  
-- Hidden skill signals  
-
-**How**
-- NLP-driven job parsing  
-- Skill extraction & profiling  
-- Role intelligence generation  
-
----
-
-### 🌍 Climate, Food Security & SDG Intelligence
-**Repos**
-- `Global-Climate-Food-Security-Intelligence-Platform-GCF-SIP`
-- `un-sdg-east-africa-insights-pipeline`
-- `sdg-rag-system`
-
-**Solves**
-- Fragmented climate & food security data  
-- Poor policy simulation tools  
-
-**How**
-- End-to-end data pipelines  
-- Explainable ML risk models  
-- RAG-based policy intelligence  
-- Scenario simulations  
-
----
-
-### 🧬 Intelligent Profiling & HITL Systems
-**Repos:** `intelligent-profiling-engine`, `un-review-hub`
-
-**Solves**
-- Black-box AI decisions  
-- Weak auditability  
-
-**How**
-- Hybrid ML + NLP  
-- HITL feedback loops  
-- Federated, tamper-evident reviews  
-
----
-
-## 🏙️ Urban, Telecom & Civic Platforms
-
-### 🚦 Smart Traffic & Urban Intelligence
-**Repo:** `nairobiflow-traffic-management`
-
-**Solves**
-- Congestion & poor traffic visibility  
-
-**How**
-- Real-time monitoring  
-- Predictive congestion analytics  
-- City-scale modeling  
-
----
-
-### 📡 ISP Field Ops Automation
-**Repo:** `isp-field-ops-automation`
-
-**Solves**
-- Manual dispatch & job tracking  
-
-**How**
-- Real-time job orchestration  
-- CRM/ERP integrations  
-- Automated call logging  
-
----
-
-### 🧑🏾‍🤝‍🧑 NGO & Civic Intelligence
-**Repos:** `ngo-insights-ai`, `NOWA-SYSTEMS`
-
-**Solves**
-- Slow needs assessment  
-- Donor–community mismatch  
-
-**How**
-- Automated data collection  
-- AI-driven prioritization  
-- Outreach intelligence  
-
----
-
-## Technical Stack
-
-### Languages & Frameworks
-Python · TypeScript · JavaScript · Solidity · Flask · Node.js · Next.js · React
-
-### Databases & Data
-PostgreSQL · MySQL · MongoDB · SQLite · Data Pipelines · RLS
-
-### Blockchain & Web3
-Ethereum · Smart Contracts · Web3.js · Consensus (Raft)
-
-### AI & Data Science
-NLP · Time-Series Forecasting · RAG Systems · Explainable ML · HITL
-
-### DevOps & Security
-Docker · GitHub Actions · Linux · CodeQL · CI/CD · Infrastructure as Code
-
----
-
-## How My Projects Fit Together
-
-My work follows a **governance-first, production architecture**:
-
-1. **Trust & data ingestion**  
-   Blockchain, audit trails, secure pipelines  
-
-2. **Intelligence layer**  
-   ML, NLP, forecasting, RAG  
-
-3. **Decision & automation**  
-   AI agents, smart contracts, HITL  
-
-4. **Deployment & operations**  
-   CI/CD, container security, reproducible infra  
-
-This mirrors how **enterprise, civic, and UN-scale systems** are built.
+| Category | Technologies |
+|----------|-------------|
+| **Languages** | Python, TypeScript, JavaScript, Solidity |
+| **Frameworks** | Next.js, React, Flask, Node.js |
+| **Databases** | PostgreSQL, MySQL, MongoDB, SQLite |
+| **Blockchain** | Ethereum, Smart Contracts, Web3.js, Raft Consensus |
+| **AI/ML** | NLP, Time-Series Forecasting, RAG, Explainable ML, HITL |
+| **DevOps** | Docker, GitHub Actions, Linux, CodeQL, CI/CD, IaC |
 
 ---
 
@@ -263,22 +126,22 @@ This mirrors how **enterprise, civic, and UN-scale systems** are built.
 ---
 
 ## Current Focus
-- Enterprise blockchain architecture  
-- Secure smart contract patterns  
-- AI agents & automation  
-- Inventory & policy forecasting  
-- CI/CD hardening & container security  
+
+- Enterprise blockchain architecture and smart contract patterns
+- AI agents, automation, and governance-ready platforms
+- CI/CD hardening and container security
+- Climate and food security intelligence systems
 
 ---
 
 ## Open to Collaboration
 
-- Enterprise & civic tech systems  
-- Blockchain + AI integrations  
-- Governance & audit-ready platforms  
-- Open-source infrastructure tools  
+- Enterprise and civic tech systems
+- Blockchain + AI integrations
+- Governance and audit-ready platforms
+- Open-source infrastructure tools
 
-📧 **Email:** 911recaro@protonmail.com  
+📧 **Email:** 911recaro@protonmail.com
 
 ---
 
@@ -286,8 +149,8 @@ This mirrors how **enterprise, civic, and UN-scale systems** are built.
 
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=bucky-ops&theme=react-dark&hide_border=true&area=true" />
 
-**Building systems that don’t just demo — they operate.**
+**Building systems that don't just demo, they operate.**
 
-*Last updated: February 2026*
+*Last updated: June 2026*
 
 </div>
